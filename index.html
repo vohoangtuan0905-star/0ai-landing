@@ -3,90 +3,451 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>0AI - AI Marketing Landing Page</title>
+    <title>0AI - Nền tảng AI Marketing hàng đầu Việt Nam</title>
     <link rel="stylesheet" href="style.css">
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+    
+    <!-- Floating Elements -->
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
 
-    <!-- HERO -->
-    <section class="hero reveal">
-        <h1>🚀 Tạo nội dung AI trong vài giây với 0AI</h1>
-        <p>Viết content, tạo video, tạo giọng nói chỉ bằng một prompt.</p>
-        <button onclick="goTo0ai()" class="cta-btn">Dùng thử ngay</button>
-    </section>
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-text">0AI</span>
+                <span class="logo-badge">BETA</span>
+            </div>
+            <div class="nav-links">
+                <a href="#hero">Trang chủ</a>
+                <a href="#features">Tính năng</a>
+                <a href="#problem">Vấn đề</a>
+                <a href="#pricing">Bảng giá</a>
+            </div>
+            <button onclick="goTo0ai()" class="nav-cta">Dùng thử <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </nav>
 
-    <!-- FEATURES -->
-    <section class="features reveal">
-        <h2>🔥 Tính năng nổi bật</h2>
-        <div class="feature-box">
-            <div class="card">
-                <h3>✍️ Viết Content AI</h3>
-                <p>Tạo bài viết marketing chỉ trong vài giây.</p>
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <div class="hero-badge" data-aos="fade-up">
+                <span class="badge-pulse">🚀 Hơn 10,000+ người dùng</span>
             </div>
-            <div class="card">
-                <h3>🎬 Tạo Video AI</h3>
-                <p>Tạo kịch bản và video TikTok nhanh chóng.</p>
+            
+            <h1 data-aos="fade-up" data-aos-delay="100">
+                Tạo nội dung AI chất lượng cao 
+                <span class="gradient-text">trong vài giây</span>
+            </h1>
+            
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+                0AI giúp bạn viết content, tạo video, tạo giọng nói chuyên nghiệp 
+                chỉ với một câu lệnh đơn giản
+            </p>
+            
+            <div class="hero-cta" data-aos="fade-up" data-aos-delay="300">
+                <button onclick="goTo0ai()" class="cta-btn-primary">
+                    <span>Dùng thử miễn phí</span>
+                    <i class="fas fa-rocket"></i>
+                </button>
+                <button onclick="playVideo()" class="cta-btn-secondary">
+                    <i class="fas fa-play"></i>
+                    <span>Xem demo</span>
+                </button>
             </div>
-            <div class="card">
-                <h3>🎤 Tạo Giọng Nói AI</h3>
-                <p>Chuyển văn bản thành giọng nói chuyên nghiệp.</p>
+            
+            <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
+                <div class="stat-item">
+                    <span class="stat-number">10K+</span>
+                    <span class="stat-label">Người dùng</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">1M+</span>
+                    <span class="stat-label">Nội dung</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">4.9</span>
+                    <span class="stat-label">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-image" data-aos="fade-left" data-aos-delay="200">
+            <div class="floating-card">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%232d3748' rx='20'/%3E%3Ctext x='50' y='150' font-family='Arial' font-size='24' fill='%23ffffff'%3EAI Dashboard%3C/text%3E%3C/svg%3E" alt="AI Dashboard">
             </div>
         </div>
     </section>
 
-    <!-- PROBLEM -->
-    <section class="problem reveal">
-        <h2>❌ Bạn đang gặp vấn đề?</h2>
-        <ul>
-            <li>Mất hàng giờ để viết content</li>
-            <li>Không biết làm video</li>
-            <li>Thiếu ý tưởng sáng tạo</li>
-        </ul>
+    <!-- FEATURES SECTION -->
+    <section id="features" class="features">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-tag">TÍNH NĂNG</span>
+            <h2>Mọi thứ bạn cần để <span class="gradient-text">tăng tốc</span> marketing</h2>
+            <p>Khám phá bộ công cụ AI toàn diện giúp bạn tiết kiệm thời gian và chi phí</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-icon">
+                    <i class="fas fa-pen-fancy"></i>
+                </div>
+                <h3>Content AI thông minh</h3>
+                <p>Tạo bài viết blog, caption mạng xã hội, email marketing chỉ trong 30 giây</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Hơn 50+ mẫu content</li>
+                    <li><i class="fas fa-check"></i> Tối ưu SEO</li>
+                    <li><i class="fas fa-check"></i> Đa dạng ngành nghề</li>
+                </ul>
+            </div>
+            
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-icon">
+                    <i class="fas fa-video"></i>
+                </div>
+                <h3>Video AI tự động</h3>
+                <p>Chuyển văn bản thành video TikTok, Reels với hiệu ứng chuyên nghiệp</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Hàng trăm template</li>
+                    <li><i class="fas fa-check"></i> Tạo phụ đề tự động</li>
+                    <li><i class="fas fa-check"></i> Xuất video 4K</li>
+                </ul>
+            </div>
+            
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-icon">
+                    <i class="fas fa-microphone-alt"></i>
+                </div>
+                <h3>Voice AI tự nhiên</h3>
+                <p>Chuyển văn bản thành giọng nói với 100+ giọng đọc khác nhau</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Giọng nam/nữ tự nhiên</li>
+                    <li><i class="fas fa-check"></i> Hỗ trợ nhiều ngôn ngữ</li>
+                    <li><i class="fas fa-check"></i> Điều chỉnh cảm xúc</li>
+                </ul>
+            </div>
+            
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="feature-icon">
+                    <i class="fas fa-image"></i>
+                </div>
+                <h3>Image AI sáng tạo</h3>
+                <p>Tạo hình ảnh, thiết kế đồ họa chỉ với mô tả văn bản</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Nhiều phong cách</li>
+                    <li><i class="fas fa-check"></i> Xuất file PNG, SVG</li>
+                    <li><i class="fas fa-check"></i> Không bản quyền</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEM SECTION -->
+    <section id="problem" class="problem">
+        <div class="problem-container">
+            <div class="problem-content" data-aos="fade-right">
+                <span class="section-tag">VẤN ĐỀ</span>
+                <h2>Bạn đang gặp khó khăn?</h2>
+                
+                <div class="problem-list">
+                    <div class="problem-item">
+                        <div class="problem-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="problem-text">
+                            <h3>Mất hàng giờ để viết content</h3>
+                            <p>Bạn mất 2-3 giờ mỗi ngày chỉ để nghĩ ý tưởng và viết bài?</p>
+                        </div>
+                    </div>
+                    
+                    <div class="problem-item">
+                        <div class="problem-icon">
+                            <i class="fas fa-video-slash"></i>
+                        </div>
+                        <div class="problem-text">
+                            <h3>Không biết làm video</h3>
+                            <p>Bạn muốn làm video TikTok nhưng không có kỹ năng edit?</p>
+                        </div>
+                    </div>
+                    
+                    <div class="problem-item">
+                        <div class="problem-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="problem-text">
+                            <h3>Thiếu ý tưởng sáng tạo</h3>
+                            <p>Bạn bí ý tưởng và không biết nên làm nội dung gì?</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="problem-cta">
+                    <button onclick="goTo0ai()" class="cta-btn-primary">
+                        Giải quyết ngay <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="problem-image" data-aos="fade-left">
+                <div class="stats-card">
+                    <div class="stats-header">
+                        <span>Thời gian trung bình</span>
+                        <span class="badge-danger">Lãng phí</span>
+                    </div>
+                    <div class="stats-bars">
+                        <div class="stat-bar">
+                            <span>Người thường</span>
+                            <div class="bar">
+                                <div class="bar-fill" style="width: 100%"></div>
+                            </div>
+                            <span>3 giờ</span>
+                        </div>
+                        <div class="stat-bar">
+                            <span>Dùng 0AI</span>
+                            <div class="bar">
+                                <div class="bar-fill success" style="width: 10%"></div>
+                            </div>
+                            <span>30 giây</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING SECTION -->
+    <section id="pricing" class="pricing">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-tag">BẢNG GIÁ</span>
+            <h2>Chọn gói phù hợp với <span class="gradient-text">bạn</span></h2>
+            <p>Cam kết hoàn tiền 100% nếu bạn không hài lòng</p>
+        </div>
+        
+        <div class="pricing-grid">
+            <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="pricing-header">
+                    <h3>Cơ bản</h3>
+                    <div class="price">
+                        <span class="currency">đ</span>
+                        <span class="amount">0</span>
+                        <span class="period">/mãi mãi</span>
+                    </div>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> 10 content/tháng</li>
+                    <li><i class="fas fa-check"></i> 5 video/tháng</li>
+                    <li><i class="fas fa-check"></i> Giọng đọc cơ bản</li>
+                    <li><i class="fas fa-times"></i> Xuất video 4K</li>
+                    <li><i class="fas fa-times"></i> Hỗ trợ ưu tiên</li>
+                </ul>
+                <button onclick="goTo0ai()" class="pricing-btn">Bắt đầu</button>
+            </div>
+            
+            <div class="pricing-card popular" data-aos="fade-up" data-aos-delay="200">
+                <div class="popular-badge">PHỔ BIẾN NHẤT</div>
+                <div class="pricing-header">
+                    <h3>Chuyên nghiệp</h3>
+                    <div class="price">
+                        <span class="currency">đ</span>
+                        <span class="amount">299k</span>
+                        <span class="period">/tháng</span>
+                    </div>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> Không giới hạn content</li>
+                    <li><i class="fas fa-check"></i> Không giới hạn video</li>
+                    <li><i class="fas fa-check"></i> 50+ giọng đọc cao cấp</li>
+                    <li><i class="fas fa-check"></i> Xuất video 4K</li>
+                    <li><i class="fas fa-check"></i> Hỗ trợ 24/7</li>
+                </ul>
+                <button onclick="goTo0ai()" class="pricing-btn popular-btn">Dùng thử 7 ngày</button>
+            </div>
+            
+            <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="pricing-header">
+                    <h3>Doanh nghiệp</h3>
+                    <div class="price">
+                        <span class="currency">đ</span>
+                        <span class="amount">999k</span>
+                        <span class="period">/tháng</span>
+                    </div>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> Tất cả tính năng Pro</li>
+                    <li><i class="fas fa-check"></i> API riêng</li>
+                    <li><i class="fas fa-check"></i> Đào tạo nhân viên</li>
+                    <li><i class="fas fa-check"></i> Tài khoản phụ</li>
+                    <li><i class="fas fa-check"></i> Quản lý team</li>
+                </ul>
+                <button onclick="goTo0ai()" class="pricing-btn">Liên hệ</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-tag">KHÁCH HÀNG</span>
+            <h2>Người dùng nói gì về <span class="gradient-text">0AI</span></h2>
+        </div>
+        
+        <div class="testimonial-grid">
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="testimonial-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">"Tôi tiết kiệm được 20 giờ mỗi tuần nhờ 0AI. Content tự động viết rất chất lượng, không cần chỉnh sửa nhiều."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">NT</div>
+                    <div class="author-info">
+                        <h4>Nguyễn Trang</h4>
+                        <p>Marketing Manager</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="testimonial-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">"Tính năng tạo video AI thật sự ấn tượng. Tôi có thể tạo 10 video TikTok chỉ trong 15 phút."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">HA</div>
+                    <div class="author-info">
+                        <h4>Hoàng Anh</h4>
+                        <p>Content Creator</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="testimonial-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">"Giọng đọc AI của 0AI rất tự nhiên, khách hàng của tôi không thể phân biệt được với người thật."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">MT</div>
+                    <div class="author-info">
+                        <h4>Minh Tuấn</h4>
+                        <p>Podcast Producer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- FINAL CTA -->
-    <section class="final-cta reveal">
-        <h2>Sẵn sàng trải nghiệm AI?</h2>
-        <button onclick="goTo0ai()" class="cta-btn">Bắt đầu ngay</button>
-        <p class="click-count">Số lượt click: <span id="counter">0</span></p>
+    <section class="final-cta">
+        <div class="cta-container" data-aos="zoom-in">
+            <h2>Sẵn sàng <span class="gradient-text">tăng tốc</span> cùng AI?</h2>
+            <p>Hơn 10,000+ người dùng đã tin tưởng sử dụng 0AI mỗi ngày</p>
+            
+            <div class="cta-buttons">
+                <button onclick="goTo0ai()" class="cta-btn-primary large">
+                    <span>Bắt đầu dùng thử miễn phí</span>
+                    <i class="fas fa-rocket"></i>
+                </button>
+            </div>
+            
+            <div class="click-counter">
+                <i class="fas fa-mouse-pointer"></i>
+                <span>Số lượt click: <strong id="counter">0</strong></span>
+            </div>
+            
+            <div class="trust-badges">
+                <span><i class="fas fa-shield-alt"></i> Bảo mật tuyệt đối</span>
+                <span><i class="fas fa-credit-card"></i> Thanh toán an toàn</span>
+                <span><i class="fas fa-headset"></i> Hỗ trợ 24/7</span>
+            </div>
+        </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
-        <p>© 2026 0AI - Marketing by Hoàng Tuấn</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">0AI</div>
+                <p>Nền tảng AI Marketing hàng đầu Việt Nam</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Sản phẩm</h4>
+                <ul>
+                    <li><a href="#">Tính năng</a></li>
+                    <li><a href="#">Bảng giá</a></li>
+                    <li><a href="#">API</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Công ty</h4>
+                <ul>
+                    <li><a href="#">Về chúng tôi</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Tuyển dụng</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Hỗ trợ</h4>
+                <ul>
+                    <li><a href="#">Trung tâm trợ giúp</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+                    <li><a href="#">Điều khoản</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2026 0AI - Marketing by Hoàng Tuấn. All rights reserved.</p>
+        </div>
     </footer>
 
-<script>
-    // Tracking Click
-    let count = localStorage.getItem("clickCount") || 0;
-    document.getElementById("counter").innerText = count;
+    <!-- Back to Top Button -->
+    <button id="back-to-top" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
-    function goTo0ai() {
-        count++;
-        localStorage.setItem("clickCount", count);
-        document.getElementById("counter").innerText = count;
-        window.open("https://0ai.vn", "_blank");
-    }
-
-    // Scroll Reveal Effect
-    function revealOnScroll() {
-        const reveals = document.querySelectorAll(".reveal");
-        reveals.forEach((el) => {
-            const windowHeight = window.innerHeight;
-            const elementTop = el.getBoundingClientRect().top;
-            const revealPoint = 100;
-
-            if (elementTop < windowHeight - revealPoint) {
-                el.classList.add("active");
-            }
-        });
-    }
-
-    window.addEventListener("scroll", revealOnScroll);
-    revealOnScroll();
-</script>
-
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
