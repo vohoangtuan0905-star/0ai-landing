@@ -8,21 +8,21 @@ AOS.init({
 // Initialize Particles
 particlesJS("particles-js", {
     particles: {
-        number: { value: 80, density: { enable: true, value_area: 800 } },
-        color: { value: "#6366f1" },
+        number: { value: 60, density: { enable: true, value_area: 900 } },
+        color: { value: "#1f9d8b" },
         shape: { type: "circle" },
-        opacity: { value: 0.5, random: false },
+        opacity: { value: 0.45, random: false },
         size: { value: 3, random: true },
         line_linked: {
             enable: true,
             distance: 150,
-            color: "#6366f1",
-            opacity: 0.4,
+            color: "#2dc4ab",
+            opacity: 0.35,
             width: 1
         },
         move: {
             enable: true,
-            speed: 6,
+            speed: 4,
             direction: "none",
             random: false,
             straight: false,
@@ -121,12 +121,15 @@ document.addEventListener("mousemove", function(e) {
 });
 
 // Counter Animation for Stats
-function animateValue(element, start, end, duration) {
+function animateValue(element, start, end, duration, suffix) {
     let startTimestamp = null;
+    const hasDecimal = end % 1 !== 0;
+    const decimals = hasDecimal ? 1 : 0;
     const step = (timestamp) => {
         if (!startTimestamp) startTimestamp = timestamp;
         const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        element.innerText = Math.floor(progress * (end - start) + start) + (end > 1000 ? "K+" : "");
+        const value = progress * (end - start) + start;
+        element.innerText = value.toFixed(decimals) + (suffix || "");
         if (progress < 1) {
             window.requestAnimationFrame(step);
         }
@@ -140,9 +143,10 @@ const observer = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             const stats = document.querySelectorAll(".stat-number");
             stats.forEach(stat => {
-                const value = stat.innerText;
-                if (value.includes("K")) {
-                    animateValue(stat, 0, parseInt(value), 2000);
+                const endValue = parseFloat(stat.dataset.end || stat.innerText);
+                const suffix = stat.dataset.suffix || "";
+                if (!Number.isNaN(endValue)) {
+                    animateValue(stat, 0, endValue, 2000, suffix);
                 }
             });
             observer.unobserve(entry.target);
@@ -150,9 +154,10 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.5 });
 
-document.querySelector(".hero-stats")?.forEach(stat => {
-    observer.observe(stat);
-});
+const heroStats = document.querySelector(".hero-stats");
+if (heroStats) {
+    observer.observe(heroStats);
+}
 
 // Hover Effect for Cards
 document.querySelectorAll(".feature-card, .pricing-card, .testimonial-card").forEach(card => {
