@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0AI - AI Marketing Landing Page</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- HERO -->
+    <section class="hero reveal">
+        <h1>🚀 Tạo nội dung AI trong vài giây với 0AI</h1>
+        <p>Viết content, tạo video, tạo giọng nói chỉ bằng một prompt.</p>
+        <button onclick="goTo0ai()" class="cta-btn">Dùng thử ngay</button>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features reveal">
+        <h2>🔥 Tính năng nổi bật</h2>
+        <div class="feature-box">
+            <div class="card">
+                <h3>✍️ Viết Content AI</h3>
+                <p>Tạo bài viết marketing chỉ trong vài giây.</p>
+            </div>
+            <div class="card">
+                <h3>🎬 Tạo Video AI</h3>
+                <p>Tạo kịch bản và video TikTok nhanh chóng.</p>
+            </div>
+            <div class="card">
+                <h3>🎤 Tạo Giọng Nói AI</h3>
+                <p>Chuyển văn bản thành giọng nói chuyên nghiệp.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="problem reveal">
+        <h2>❌ Bạn đang gặp vấn đề?</h2>
+        <ul>
+            <li>Mất hàng giờ để viết content</li>
+            <li>Không biết làm video</li>
+            <li>Thiếu ý tưởng sáng tạo</li>
+        </ul>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta reveal">
+        <h2>Sẵn sàng trải nghiệm AI?</h2>
+        <button onclick="goTo0ai()" class="cta-btn">Bắt đầu ngay</button>
+        <p class="click-count">Số lượt click: <span id="counter">0</span></p>
+    </section>
+
+    <footer>
+        <p>© 2026 0AI - Marketing by Hoàng Tuấn</p>
+    </footer>
+
+<script>
+    // Tracking Click
+    let count = localStorage.getItem("clickCount") || 0;
+    document.getElementById("counter").innerText = count;
+
+    function goTo0ai() {
+        count++;
+        localStorage.setItem("clickCount", count);
+        document.getElementById("counter").innerText = count;
+        window.open("https://0ai.vn", "_blank");
+    }
+
+    // Scroll Reveal Effect
+    function revealOnScroll() {
+        const reveals = document.querySelectorAll(".reveal");
+        reveals.forEach((el) => {
+            const windowHeight = window.innerHeight;
+            const elementTop = el.getBoundingClientRect().top;
+            const revealPoint = 100;
+
+            if (elementTop < windowHeight - revealPoint) {
+                el.classList.add("active");
+            }
+        });
+    }
+
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
+</script>
+
+</body>
+</html>
